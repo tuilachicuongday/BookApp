@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".PDF.PdfDetailActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/toolbarRL"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@drawable/shape_toolbar02">
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back_white"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Details"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_centerInParent="true">
+        </TextView>
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_above="@+id/bookOptions"
+        android:layout_below="@+id/toolbarRL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/PdfRl"
+                        android:layout_width="120dp"
+                        android:layout_height="170dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@color/gray02">
+
+                        <com.github.barteksc.pdfviewer.PDFView
+                            android:id="@+id/detailPdfView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                        </com.github.barteksc.pdfviewer.PDFView>
+
+                     <ProgressBar
+                         android:id="@+id/progressBar"
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"/>
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/titleTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/PdfRl"
+                        android:text="Title"
+                        style="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+
+                    <TableLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/titleTv"
+                     android:layout_toEndOf="@id/PdfRl">
+                     <!--Cate-->
+                        <TableRow>
+                             <TextView
+                                android:id="@+id/categoryLabelTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:text="Danh Mục"/>
+                            <TextView
+                                android:id="@+id/categoryTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:text="N/A"/>
+                        </TableRow>
+
+                     <!--Date-->
+                     <TableRow
+                             android:layout_marginTop="5dp">
+                             <TextView
+                                 android:id="@+id/dateLabelTv"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:layout_marginEnd="5dp"
+                                 android:text="Ngày Đăng"/>
+                             <TextView
+                                 android:id="@+id/dateTv"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:layout_marginEnd="5dp"
+                                 android:text="N/A"/>
+                         </TableRow>
+
+                     <!--Size-->
+                     <TableRow
+                         android:layout_marginTop="5dp">
+                         <TextView
+                             android:id="@+id/sizeLabelTv"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginEnd="5dp"
+                             android:text="Dung Lượng"/>
+                         <TextView
+                             android:id="@+id/sizeTv"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginEnd="5dp"
+                             android:text="N/A"/>
+                     </TableRow>
+
+                     <!--ViewCount-->
+                     <TableRow
+                         android:layout_marginTop="5dp">
+                         <TextView
+                             android:id="@+id/viewsLabelTv"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginEnd="5dp"
+                             android:text="Lượt Xem"/>
+                         <TextView
+                             android:id="@+id/viewsTv"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginEnd="5dp"
+                             android:text="0"/>
+                     </TableRow>
+
+                     <!--DownloadCount-->
+                     <TableRow
+                         android:layout_marginTop="5dp">
+                         <TextView
+                             android:id="@+id/downloadsLabelTv"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginEnd="5dp"
+                             android:text="Lượt Tải"/>
+                         <TextView
+                             android:id="@+id/downloadsTv"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginEnd="5dp"
+                             android:text="0"/>
+                     </TableRow>
+
+                        <!--DownloadCount-->
+                        <TableRow
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/pagesLabelTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:text="Số Trang"/>
+                            <TextView
+                                android:id="@+id/pagesTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:text="0"/>
+                        </TableRow>
+                 </TableLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/desTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Des"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/black"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/gray03"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bình Luận"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+                <ImageButton
+                    android:id="@+id/addCmtBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:background="@android:color/transparent"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_baseline_add_comment_24"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/commentsRv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray04"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/row_comment"
+                    android:layout_below="@+id/addCmtBtn"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/bookOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+        <!--open view pdf-->
+
+        <Button
+            android:id="@+id/readBookBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:drawableTop="@drawable/ic_book_white"
+            android:text="Đọc Ngay"
+            android:textSize="12sp"
+            android:layout_weight="1"
+            android:background="@color/gray02">
+        </Button>
+
+        <Button
+            android:id="@+id/downloadBookBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:textSize="12sp"
+            android:drawableTop="@drawable/ic_download_white"
+            android:text="Tải Xuống"
+            android:layout_weight="1"
+            android:background="@color/gray02">
+        </Button>
+
+        <Button
+            android:id="@+id/favoriteBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_favorite_border_white"
+            android:text="Yêu Thích"
+            android:textSize="12sp"
+            android:layout_weight="1"
+            android:background="@color/gray02">
+        </Button>
+    </LinearLayout>
+</RelativeLayout>
